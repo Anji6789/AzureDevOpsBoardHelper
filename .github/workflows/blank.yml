@@ -23,15 +23,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      #- uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Build
+      - name: APIconnection
         run: |
-         .\build.ps1
+          curl --location --request POST 'https://dev.azure.com/ChirumamillaA/apicall/_apis/wit/workitems/$Task?api-version=5.1' \
+          --header 'T;' \
+          --header 'Authorization: Basic Om1qa3k0Mmd3d250aDVydGJxZ2p4bnpoeGxiN2tydnF2aGZhZ2VvNTJlanF1azNrdGplZHE=' \
+          --header 'Cookie: VstsSession=%7B%22PersistentSessionId%22%3A%22c6e4c4ec-2807-4803-b21a-b80f98e7b729%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D; X-VSS-UseRequestRouting=True; __RequestVerificationToken=StxbdeM3C8KGXlzaZ0FCbGDN7YrBan4vwSNgfUFJWMgkWWI2K5fzmPfBitmDmpZRj9_2h5DGVne70ggKxcHl-m7kywI1; __RequestVerificationToken200eb0ab9-f295-465d-867b-a2b1d28d8ba3=Oxx0qldTwg4lhsLO5WfRbW4tOMcjKPO1C3jnzq28ODopxP_BUTonJLa64jnKXiMiN6uelo3Dps7AzVJOSZ9wNTa76yM1; __RequestVerificationToken23c6b5070-6ea5-4868-a1ae-cf480fc8840d=StxbdeM3C8KGXlzaZ0FCbGDN7YrBan4vwSNgfUFJWMgkWWI2K5fzmPfBitmDmpZRj9_2h5DGVne70ggKxcHl-m7kywI1'
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+     
