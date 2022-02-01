@@ -22,8 +22,12 @@ jobs:
 
    
     steps:
-      
+      - name: running powershell
+        shell: pwsh
+        run: |
+          filePath: './AzureDevOpsBoardHelper/Functions/Add-AzDoTask.ps1'
       - name: APIconnection
+      
         run: |
           curl --location --request POST 'https://dev.azure.com/ChirumamillaA/apicall/_apis/wit/workitems/$Task?api-version=5.1' \
           --header 'T;' \
